@@ -6,35 +6,50 @@ import Button from '../Components/Button';
 
 const Container = () => {
 
-    const testMessage = useSelector((state) => state.testMessage);
-    // const error = useSelector((state) => state.error);
+    //const testMessage = useSelector((state) => state.testMessage);
+    const charactersArray = useSelector((state) => state.charactersArray);
 
     const dispatch = useDispatch();
-    // const setUsernamesArray = useCallback(() => dispatch({ type: 'SET_DATA' }), [dispatch]);
+    const setData = useCallback((data) => dispatch({ type: 'SET_DATA', data: data }), [dispatch]);
     const setError = useCallback(() => dispatch({ type: 'SET_ERROR' }), [dispatch]);
+
+    let displayedList;
 
     useEffect(() => {
         axios
             .get(`https://swapi.dev/api/people/`)
             .then((response) => {
                 // handle success
-                // const newDataArray = response.data.items.map((el) => el.login);
-                // setUsernamesArray(newDataArray);
-                console.log(response.data)
+                //console.log(response.data.results);
+                setData(response.data.results);
             })
             .catch((error) => {
                 // handle error
                 console.log(error);
                 setError();
             });
-    }, []);
+    }, [setData, setError]);
+
+    if (charactersArray.length !== 0) {
+        displayedList = charactersArray.map(el => {
+            // console.log(el);
+            return (
+                <SingleCharacter
+                    key={el.name} 
+                    name={el.name} 
+                    gender={el.gender} 
+                    year={el.birth_year} 
+                    age='22' 
+                    height={el.height} 
+                    films={el.films} />
+            )
+        });
+    };
 
     return (
-        <div>
-            <SingleCharacter name='first' gender='male' year='1991' age='22' height='173' films='listOfFilms' />
-            <SingleCharacter name='second' gender='female' year='1992'age='22' height='173' films='listOfFilms' />
-            <SingleCharacter name='third' gender='female' year='1993' age='22' height='173' films='listOfFilms' />
-            {testMessage}
+        <div style={{display:'flex',flexDirection:'column',maxWidth: '800px'}}>
+            {displayedList}
+            {/* {testMessage} */}
             <Button />
         </div>
     );

@@ -1,5 +1,5 @@
 const initialState = {
-    listOfCharacters: {},
+    charactersArray: [],
     testMessage: 'hello from Redux',
     error: false
   };
@@ -10,6 +10,11 @@ const initialState = {
         return {
           ...state,
           error: true
+        };
+      case 'SET_DATA':
+        return {
+          ...state,
+          charactersArray: action.data
         };
       // no default
     }
