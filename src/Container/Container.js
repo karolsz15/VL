@@ -8,12 +8,17 @@ const Container = () => {
 
     //const testMessage = useSelector((state) => state.testMessage);
     const charactersArray = useSelector((state) => state.charactersArray);
+    // const showDetails = useSelector((state) => state.showDetails);
 
     const dispatch = useDispatch();
     const setData = useCallback((data) => dispatch({ type: 'SET_DATA', data: data }), [dispatch]);
     const setError = useCallback(() => dispatch({ type: 'SET_ERROR' }), [dispatch]);
 
     let displayedList;
+
+    const handleCharacterClicked = () => {
+    
+    }
 
     useEffect(() => {
         axios
@@ -41,7 +46,8 @@ const Container = () => {
                     year={el.birth_year} 
                     age='22' 
                     height={el.height} 
-                    films={el.films} />
+                    films={el.films}
+                    clicked={handleCharacterClicked} />
             )
         });
     };
