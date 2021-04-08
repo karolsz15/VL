@@ -29,7 +29,7 @@ const Container = () => {
                 console.log(error);
                 setError();
             });
-    }, [buttonClickedCounter]);
+    }, [buttonClickedCounter, setData, setError]);
 
     if (charactersArray.length > 0) {
         displayedList = charactersArray.map(el => {
