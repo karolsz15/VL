@@ -6,26 +6,22 @@ import Button from '../Components/Button';
 
 const Container = () => {
 
-    //const testMessage = useSelector((state) => state.testMessage);
     const charactersArray = useSelector((state) => state.charactersArray);
-    // const showDetails = useSelector((state) => state.showDetails);
+    const buttonClickedCounter = useSelector((state) => state.buttonClickedCounter);
 
     const dispatch = useDispatch();
-    const setData = useCallback((data) => dispatch({ type: 'SET_DATA', data: data }), [dispatch]);
+    const setData = useCallback((data) => dispatch({ type: 'SET_DATA', data: data}), [dispatch]);
     const setError = useCallback(() => dispatch({ type: 'SET_ERROR' }), [dispatch]);
+    const setCounter = useCallback(() => dispatch({ type: 'SET_COUNTER' }), [dispatch]);
 
     let displayedList;
 
-    const handleCharacterClicked = () => {
-    
-    }
-
     useEffect(() => {
         axios
-            .get(`https://swapi.dev/api/people/`)
+            .get(`http://swapi.dev/api/people/?page=${buttonClickedCounter}`)
             .then((response) => {
                 // handle success
-                //console.log(response.data.results);
+                // console.log(response.data.results);
                 setData(response.data.results);
             })
             .catch((error) => {
@@ -33,11 +29,10 @@ const Container = () => {
                 console.log(error);
                 setError();
             });
-    }, [setData, setError]);
+    }, [buttonClickedCounter]);
 
-    if (charactersArray.length !== 0) {
+    if (charactersArray.length > 0) {
         displayedList = charactersArray.map(el => {
-            // console.log(el);
             return (
                 <SingleCharacter
                     key={el.name} 
@@ -47,7 +42,7 @@ const Container = () => {
                     age='22' 
                     height={el.height} 
                     films={el.films}
-                    clicked={handleCharacterClicked} />
+                />
             )
         });
     };
@@ -55,8 +50,7 @@ const Container = () => {
     return (
         <div style={{display:'flex',flexDirection:'column',maxWidth: '800px'}}>
             {displayedList}
-            {/* {testMessage} */}
-            <Button />
+            <Button clicked={() => setCounter()}/>
         </div>
     );
 };

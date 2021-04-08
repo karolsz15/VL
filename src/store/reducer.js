@@ -1,24 +1,31 @@
 const initialState = {
-    charactersArray: [],
-    testMessage: 'hello from Redux',
-    error: false
-  };
+  charactersArray: [],
+  error: false,
+  buttonClickedCounter: 1
+};
   
-  const reducer = (state = initialState, action) => {
-    switch (action.type) {
-      case 'SET_ERROR':
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SET_ERROR':
+      return {
+        ...state,
+        error: true
+      };
+    case 'SET_DATA':
+      let newCharactersArray = [...state.charactersArray, ...action.data]
+      return {
+        ...state,
+        charactersArray: newCharactersArray
+      };
+      case 'SET_COUNTER':
+        let newCounter = state.buttonClickedCounter + 1;
         return {
           ...state,
-          error: true
+          buttonClickedCounter: newCounter
         };
-      case 'SET_DATA':
-        return {
-          ...state,
-          charactersArray: action.data
-        };
-      // no default
-    }
-    return state;
-  };
+    // no default
+  }
+  return state;
+};
   
-  export default reducer;
+export default reducer;
