@@ -1,4 +1,9 @@
 import React, {useState}  from 'react';
+import styled from 'styled-components';
+
+const Div = styled.div`
+    border:solid black 1px;
+`;
 
 const SingleCharacter = props => {
 
@@ -12,10 +17,10 @@ const SingleCharacter = props => {
     );
 
     return (
-        <div style={{border:'solid black 1px'}} onClick={() => setShowDetails(!showDetails)}>
+        <Div onClick={() => setShowDetails(!showDetails)}>
             Name: {props.name} Gender: {props.gender} Birth Year: {props.year}
             {showDetails ? details : null} 
-        </div>   
+        </Div>   
     );
 };
 
