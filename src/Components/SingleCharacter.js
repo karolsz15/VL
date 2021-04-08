@@ -12,7 +12,7 @@ const SingleCharacter = props => {
     );
 
     return (
-        <div style={{border:'solid black 1px'}} onClick={() => setShowDetails(true)}>
+        <div style={{border:'solid black 1px'}} onClick={() => setShowDetails(!showDetails)}>
             Name: {props.name} Gender: {props.gender} Birth Year: {props.year}
             {showDetails ? details : null} 
         </div>   
