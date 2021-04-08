@@ -3,6 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import SingleCharacter from '../Components/SingleCharacter';
 import Button from '../Components/Button';
+import styled from 'styled-components';
+
+
+const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+`;
 
 const Container = () => {
 
@@ -48,10 +57,10 @@ const Container = () => {
     };
 
     return (
-        <div style={{display:'flex',flexDirection:'column',maxWidth: '800px'}}>
+        <StyledContainer>
             {displayedList}
             <Button clicked={() => setCounter()}/>
-        </div>
+        </StyledContainer>
     );
 };
 

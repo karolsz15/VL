@@ -2,7 +2,11 @@ import React, {useState}  from 'react';
 import styled from 'styled-components';
 
 const Div = styled.div`
-    border:solid black 1px;
+    /* display: flex;
+    flex-direction:column; */
+    border: solid black .1em;
+    padding: .2em;
+
     &:hover {
         cursor: pointer;
         background-color: #f4f4f4;
@@ -37,7 +41,9 @@ const SingleCharacter = props => {
 
     return (
         <Div onClick={() => setShowDetails(!showDetails)}>
-            Name: {props.name} Gender: {props.gender} Birth Year: {props.year}
+            <div>Name: {props.name}</div>
+            <div>Gender: {props.gender}</div>
+            <div>Birth Year: {props.year}</div>  
             {showDetails ? details : null} 
         </Div>   
     );
