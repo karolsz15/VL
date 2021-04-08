@@ -2,6 +2,7 @@ import React  from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 //import axios from 'axios';
 import SingleCharacter from '../Components/SingleCharacter';
+import Button from '../Components/Button';
 
 const Container = () => {
     const testMessage = useSelector((state) => state.testMessage);
@@ -11,7 +12,8 @@ const Container = () => {
             <SingleCharacter name='second' gender='female' year='1992'age='22' height='173' films='listOfFilms' />
             <SingleCharacter name='third' gender='female' year='1993' age='22' height='173' films='listOfFilms' />
             {testMessage}
-        </div>   
+            <Button />
+        </div>
     );
 };
 
