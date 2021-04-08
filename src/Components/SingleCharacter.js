@@ -2,10 +2,12 @@ import React, {useState}  from 'react';
 import styled from 'styled-components';
 
 const Div = styled.div`
-    /* display: flex;
-    flex-direction:column; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction:column; */
     border: solid black .1em;
-    padding: .2em;
+    padding: .5em;
 
     &:hover {
         cursor: pointer;
@@ -41,10 +43,15 @@ const SingleCharacter = props => {
 
     return (
         <Div onClick={() => setShowDetails(!showDetails)}>
-            <div>Name: {props.name}</div>
-            <div>Gender: {props.gender}</div>
-            <div>Birth Year: {props.year}</div>  
-            {showDetails ? details : null} 
+            <div>
+                <div>Name: {props.name}</div>
+                <div>Gender: {props.gender}</div>
+                <div>Birth Year: {props.year}</div>  
+                {showDetails ? details : null} 
+            </div>
+            {!showDetails ? 
+            <i className="fa fa-angle-down" style={{fontSize:'2em', fontWeight: '900'}} /> :
+            <i className="fa fa-angle-up" style={{ fontSize: '2em', fontWeight: '900' }} /> }
         </Div>   
     );
 };
