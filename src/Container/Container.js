@@ -3,27 +3,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import SingleCharacter from '../Components/SingleCharacter';
 import Button from '../Components/Button';
+import LargeSpinner from '../Components/LargeSpinner';
+
 import styled from 'styled-components';
 
-
-const StyledContainer = styled.div`
+const StyledContainer = styled.main`
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    margin: auto;
+    margin: .5em auto;
 `;
 
 const Container = () => {
 
     const charactersArray = useSelector((state) => state.charactersArray);
     const buttonClickedCounter = useSelector((state) => state.buttonClickedCounter);
+    const isLoading = useSelector((state) => state.isLoading);
 
     const dispatch = useDispatch();
     const setData = useCallback((data) => dispatch({ type: 'SET_DATA', data: data}), [dispatch]);
     const setError = useCallback(() => dispatch({ type: 'SET_ERROR' }), [dispatch]);
     const setCounter = useCallback(() => dispatch({ type: 'SET_COUNTER' }), [dispatch]);
 
-    let displayedList;
+    let displayedList = <LargeSpinner/>;
 
     useEffect(() => {
         axios
@@ -59,7 +61,9 @@ const Container = () => {
     return (
         <StyledContainer>
             {displayedList}
-            <Button clicked={() => setCounter()}/>
+            <Button 
+                clicked={() => setCounter()}
+                showSpinner={isLoading}/>
         </StyledContainer>
     );
 };

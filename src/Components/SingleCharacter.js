@@ -1,12 +1,12 @@
 import React, {useState}  from 'react';
 import styled from 'styled-components';
 
-const Div = styled.div`
+const Div = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* flex-direction:column; */
     border: solid black .1em;
+    font-size: .8em;
     padding: .5em;
 
     &:hover {
@@ -19,7 +19,8 @@ const StyledDetails = styled.ul``;
 
 const SingleCharacter = props => {
 
-    //local state instead of global Redux state (in order to show details for a single character on click, not a whole list)
+    //local state instead of global Redux state (in order to show details for a single character on click)
+    //otherwise it would expand details for all characters on a clickon single character
     const [showDetails, setShowDetails] = useState(false);
 
     let listOfFilms;

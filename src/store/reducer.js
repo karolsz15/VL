@@ -1,7 +1,8 @@
 const initialState = {
   charactersArray: [],
   error: false,
-  buttonClickedCounter: 1
+  buttonClickedCounter: 1,
+  isLoading: false
 };
   
 const reducer = (state = initialState, action) => {
@@ -12,16 +13,18 @@ const reducer = (state = initialState, action) => {
         error: true
       };
     case 'SET_DATA':
-      let newCharactersArray = [...state.charactersArray, ...action.data]
+      const newCharactersArray = [...state.charactersArray, ...action.data]
       return {
         ...state,
-        charactersArray: newCharactersArray
+        charactersArray: newCharactersArray,
+        isLoading: false
       };
       case 'SET_COUNTER':
-        let newCounter = state.buttonClickedCounter + 1;
+        const newCounter = state.buttonClickedCounter + 1;
         return {
           ...state,
-          buttonClickedCounter: newCounter
+          buttonClickedCounter: newCounter,
+          isLoading: true
         };
     // no default
   }
