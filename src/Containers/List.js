@@ -42,6 +42,7 @@ const Container = () => {
             .get(`http://swapi.dev/api/people/?page=${buttonClickedCounter}`)
             .then((response) => {
                 setData(response.data.results);
+                console.log(response.data.results)
             })
             .catch((error) => {
                 console.log(error);
@@ -57,7 +58,10 @@ const Container = () => {
                     name={el.name} 
                     gender={el.gender} 
                     year={el.birth_year} 
-                    height={el.height} 
+                    height={el.height}
+                    mass={el.mass}
+                    hair={el.hair_color} 
+                    skin={el.skin_color} 
                     films={el.films}
                 />
             )

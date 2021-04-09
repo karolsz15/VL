@@ -31,8 +31,10 @@ const SingleCharacter = props => {
 
     const details = (
         <StyledDetails>
-            <li>Age: {props.age}</li>
             <li>Height: {props.height}</li>
+            <li>Mass: {props.mass}</li>
+            <li>Hair color: {props.hair}</li>
+            <li>Skin color: {props.skin}</li>
             <li>Films: <ol>{listOfFilms}</ol></li>
         </StyledDetails>
     );
