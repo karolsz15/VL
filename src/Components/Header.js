@@ -3,18 +3,16 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.header`
     font-family: 'Starjedi', serif;
+    color: #fcd000;
     font-size: 3em;
     text-align: center;
     margin: .5em;
-
-    /* font-size: 1.5em;
-    color: blue;
-    display: flex;
-    justify-content: center;
-    padding: .5em;
-    &:hover {
-        cursor: pointer;
-    } */
+    @media (max-width: 768px) {
+        font-size: 2em;
+    }
+    @media (max-width: 425px) {
+        font-size: 1.5em;
+    }
 `;
 
 const Header = () => (

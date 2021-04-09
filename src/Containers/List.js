@@ -2,12 +2,15 @@ import React, { useEffect, useCallback }  from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import SingleCharacter from '../Components/SingleCharacter';
-import Button from '../Components/Button';
-import LargeSpinner from '../Components/LargeSpinner';
+import Button from '../Components/UI/Button';
+import LargeSpinner from '../Components/UI/LargeSpinner';
 
 import styled from 'styled-components';
 
 const StyledContainer = styled.main`
+    background: white;
+    padding: 2em;
+    border-radius: 1.5em;
     display: flex;
     flex-direction: column;
     max-width: 500px;
