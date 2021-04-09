@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SmallSpinner from './SmallSpinner';
 
 const StyledButton = styled.button`
+    font-family: 'Starjedi', serif;
     font-size: 1.5em;
     color: blue;
     display: flex;
@@ -15,8 +16,8 @@ const StyledButton = styled.button`
 
 const Button = props => (
     <StyledButton type='button' onClick={props.clicked}>
-        LOAD MORE YOUNG PADAWAN!
-        <span>{props.showSpinner ? <SmallSpinner/> : <i class="fas fa-jedi"></i>}</span>
+        load more young padawan
+        <span style={{marginLeft:'.5em'}}>{props.showSpinner ? <SmallSpinner/> : <i class="fas fa-jedi"></i>}</span>
     </StyledButton>
 );
 
