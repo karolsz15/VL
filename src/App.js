@@ -1,10 +1,13 @@
 import Container from './Container/Container';
 import LeftYoda from './Components/LeftYoda';
 import RightYoda from './Components/RightYoda';
+import Header from './Components/Header';
+
+import React from 'react';
 
 function App() {
   return (
-    <div style={{display:'flex', flexWrap:'wrap'}}>
+    <div>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,9 +22,13 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <LeftYoda/>
-      <Container/>
-      <RightYoda/>
+      <Header/>
+      <div style={{display:'flex'}}>
+        <LeftYoda/>
+        <Container/>
+        <RightYoda/>
+      </div>
+
     </div>
   );
 }
