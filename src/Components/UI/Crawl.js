@@ -19,9 +19,9 @@ const StyledDiv = styled.div`
     /* width: 600px; */
     margin: 0 auto;
     transform: rotateX(30deg);
-    animation: animateCrawl 40s ease-in;
+    animation: animateCrawl 20s ease-in;
     animation-fill-mode: forwards;
-    animation-delay: 1s;
+    /* animation-delay: 1s; */
     }
 
     p span { 
@@ -32,7 +32,7 @@ const StyledDiv = styled.div`
     }
 
     @keyframes animateCrawl {
-        0%   { transform: rotateX(30deg) translateY(400px); }
+        0%   { transform: rotateX(30deg) translateY(300px); }
         100% { transform: rotateX(30deg) translateY(-50px); }
     }
 

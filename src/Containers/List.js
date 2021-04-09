@@ -15,6 +15,14 @@ const StyledContainer = styled.main`
     flex-direction: column;
     max-width: 500px;
     margin: .5em auto;
+    @media (max-width: 768px) {
+        padding: .5em;
+        border-radius: .5em;
+        margin: .1em;
+    }
+    @media (max-width: 425px) {
+        font-size: 1.5em;
+    }
 `;
 
 const Container = () => {
@@ -34,12 +42,9 @@ const Container = () => {
         axios
             .get(`http://swapi.dev/api/people/?page=${buttonClickedCounter}`)
             .then((response) => {
-                // handle success
-                // console.log(response.data.results);
                 setData(response.data.results);
             })
             .catch((error) => {
-                // handle error
                 console.log(error);
                 setError();
             });

@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
     color: #fcd000;
     font-size: 3em;
     text-align: center;
-    margin: .5em;
+    padding: .5em;
     @media (max-width: 768px) {
         font-size: 2em;
     }
