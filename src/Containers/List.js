@@ -4,7 +4,6 @@ import axios from 'axios';
 import SingleCharacter from '../Components/SingleCharacter';
 import Button from '../Components/UI/Button';
 import LargeSpinner from '../Components/UI/LargeSpinner';
-
 import styled from 'styled-components';
 
 const StyledContainer = styled.main`
@@ -18,10 +17,10 @@ const StyledContainer = styled.main`
     @media (max-width: 768px) {
         padding: .5em;
         border-radius: .5em;
-        margin: .1em;
     }
     @media (max-width: 425px) {
         font-size: 1.5em;
+        max-width: 90vw;
     }
 `;
 
@@ -58,7 +57,6 @@ const Container = () => {
                     name={el.name} 
                     gender={el.gender} 
                     year={el.birth_year} 
-                    age='22' 
                     height={el.height} 
                     films={el.films}
                 />
@@ -71,7 +69,7 @@ const Container = () => {
             {displayedList}
             <Button 
                 clicked={() => setCounter()}
-                showSpinner={isLoading}/>
+                showSpinner={isLoading} />
         </StyledContainer>
     );
 };

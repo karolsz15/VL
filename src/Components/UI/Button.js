@@ -12,6 +12,9 @@ const StyledButton = styled.button`
     &:hover {
         cursor: pointer;
     }
+    @media (max-width: 425px) {
+        font-size: .8em;
+    }
 `;
 
 const Button = props => (

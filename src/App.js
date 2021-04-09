@@ -1,9 +1,5 @@
-import Container from './Containers/Container';
-// import LeftYoda from './Components/LeftYoda';
-// import RightYoda from './Components/RightYoda';
-// import Header from './Components/Header';
-
 import React from 'react';
+import Container from './Containers/Container';
 
 function App() {
   return (
