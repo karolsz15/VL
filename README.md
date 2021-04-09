@@ -1,6 +1,6 @@
 # Star Wars Characters Catalogue
 
-## 1. LIVE DEMO: 
+## 1. LIVE DEMO: https://starwarskarolsz15.web.app/
 
 ## 2. DESCRIPTION
 Task description: Using `The Star Wars API` (https://swapi.dev/) create an interactive catalogue of star wars
