@@ -20,7 +20,7 @@ const StyledButton = styled.button`
 const Button = props => (
     <StyledButton type='button' onClick={props.clicked}>
         load more young padawan
-        <span style={{marginLeft:'.5em'}}>{props.showSpinner ? <SmallSpinner/> : <i class="fas fa-jedi"></i>}</span>
+        <span style={{marginLeft:'.5em'}}>{props.showSpinner ? <SmallSpinner/> : <i className="fas fa-jedi"></i>}</span>
     </StyledButton>
 );
 

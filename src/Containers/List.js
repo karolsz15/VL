@@ -42,7 +42,6 @@ const Container = () => {
             .get(`http://swapi.dev/api/people/?page=${buttonClickedCounter}`)
             .then((response) => {
                 setData(response.data.results);
-                console.log(response.data.results)
             })
             .catch((error) => {
                 console.log(error);
@@ -54,7 +53,7 @@ const Container = () => {
         displayedList = charactersArray.map(el => {
             return (
                 <SingleCharacter
-                    key={el.name} 
+                    key={el.created} 
                     name={el.name} 
                     gender={el.gender} 
                     year={el.birth_year} 

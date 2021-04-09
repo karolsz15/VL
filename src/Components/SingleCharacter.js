@@ -25,7 +25,9 @@ const SingleCharacter = props => {
     let listOfFilms;
     if (props.films) {
         listOfFilms = props.films.map(el => (
-            <li>{el}</li>
+            <li key={el}>
+                {el}
+            </li>
         ));
     };
 
