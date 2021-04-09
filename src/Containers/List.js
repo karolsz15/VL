@@ -39,7 +39,7 @@ const Container = () => {
 
     useEffect(() => {
         axios
-            .get(`http://swapi.dev/api/people/?page=${buttonClickedCounter}`)
+            .get(`https://swapi.dev/api/people/?page=${buttonClickedCounter}`)
             .then((response) => {
                 setData(response.data.results);
             })
